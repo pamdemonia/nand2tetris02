@@ -64,4 +64,6 @@ CHIP ALU {
 
    Mux(a=false,b=true,sel=ngsel,out=ng);
 
+   s
+
 }
