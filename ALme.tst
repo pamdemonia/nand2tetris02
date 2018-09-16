@@ -3,9 +3,9 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/02/ALU.tst
 
-load ALU.hdl,
-output-file ALU-me.out,
-// compare-to ALU.cmp,
+load ALUme.hdl,
+output-file ALUme.out,
+compare-to ALUme.cmp,
 output-list x%X1.4.1 y%X1.4.1 zx%B1.1.1 nx%B1.1.1 zy%B1.1.1
             ny%B1.1.1 f%B1.1.1 no%B1.1.1 out%X1.4.1 zr%B1.1.1
             ng%B1.1.1;

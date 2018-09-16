@@ -26,7 +26,7 @@
 // if (out == 0) set zr = 1
 // if (out < 0) set ng = 1
 
-CHIP ALU {
+CHIP ALUme {
     IN
         x[16], y[16],  // 16-bit inputs
         zx, // zero the x input?
@@ -57,16 +57,12 @@ CHIP ALU {
    And16(a=xinput,b=yinput,out=andresult);
    Add16(a=xinput,b=yinput,out=addresult);
 
-   Mux16(a=andresult,b=addresult,sel=f,out=fresult);
+   Mux16(a=andresult,b=addresult,sel=f,out=fresult,out[15]=ngsel);
 
    Not16(in=fresult,out=notf);
-   Mux16(a=fresult,b=notf,sel=no,out=out,out[15]=ngsel,out[0..7]=zrtesta,out[8..15]=zrtestb);
+   Mux16(a=fresult,b=notf,sel=no,out=out);
 
    Mux(a=false,b=true,sel=ngsel,out=ng);
 
-   Or8Way(in=zrtesta,out=za);
-   Or8Way(in=zrtestb,out=zb);
-   Or(a=za,b=zb,out=notout);
-   Not(in=notout,out=zr);
 
 }
